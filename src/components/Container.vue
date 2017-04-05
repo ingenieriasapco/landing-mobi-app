@@ -10,6 +10,10 @@
       <br>
       <li><a href="http://vuejs-templates.github.io/webpack/" target="_blank">Docs for This Template</a></li>
     </ul>
+
+    <form action="">
+      <input type="text" values="hola" name="aa">
+    </form>
     <h2>Ecosystem</h2>
     <ul>
       <li><a href="http://router.vuejs.org/" target="_blank">vue-router</a></li>
@@ -22,7 +26,7 @@
 
 <script>
 export default {
-  name: 'hello',
+  name: 'container',
   data() {
     return {
       msg: 'Welcome to Your Vue.js App',
