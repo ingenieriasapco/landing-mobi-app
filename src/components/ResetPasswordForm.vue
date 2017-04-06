@@ -6,8 +6,8 @@
     <div class="panel-body">
       <form role="form" @submit.prevent="resetPassword()">
         <div class="form-group">
-          <label for="exampleInputEmail1">Email</label>
-          <input type="email" class="form-control" v-model.trim="user.email" placeholder="Enter email" required>
+          <label for="Email1">Email</label>
+          <input type="email" name="Email1" class="form-control" v-model.trim="user.email" placeholder="Enter email" required>
         </div>
         <div class="form-group">
           <label for="exampleInputPassword1">Contraseña</label>
@@ -29,6 +29,7 @@
 
 <script>
   import axios from 'axios';
+  import sweetalert from 'sweetalert';
 
   export default {
     name: 'resetPasswordForm',
@@ -47,8 +48,21 @@
         this.user.token = this.$route.params.token;
         const user = this.user;
         axios.post('http://localhost:3030/api/users/reset-password', { user })
-        .then((res) => { console.log(res); })
-        .catch((error) => { console.log(error); });
+        .then((res) => {
+          if (res.email) {
+            const self = this;
+            sweetalert({
+              title: 'Contraseña restablecida',
+              text: 'Ya puedes disfrutar nuevamente de Mobi App',
+              type: 'success',
+              confirmButtonText: 'Ok',
+              confirmButtonColor: '#d47729',
+            }, () => {
+              self.$router.push({ path: '/' });
+            });
+          }
+        })
+        .catch((error) => { console.error(error); });
       },
     },
   };
@@ -59,6 +73,7 @@
   .form--container{
     margin-top: 30px;
   }
+  label{ text-align: left; }
   .btn-change {
     color: #fff;
     background-color: #d47729;

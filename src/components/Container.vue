@@ -1,9 +1,11 @@
 <template>
   <div class="hello">
-    <h1>{{ msg }}</h1>
-    <h3>¿Has olvidado tu contraseña?</h3>
+    <div class="logo">
+      <img src="./../assets/logo.png" alt="Playstore"/>
+    </div>
 
     <div class="form--container">
+      <h3 v-if="validate">¿Has olvidado tu contraseña?</h3>
       <ResetPasswordForm v-if="validate"></ResetPasswordForm>
       <div v-else="validate">
         <p class="lead">
@@ -28,7 +30,6 @@
     },
     data() {
       return {
-        msg: 'Mobi App',
         validate: true,
       };
     },
@@ -53,6 +54,9 @@
 <style scoped>
   h1, h2, h3 {
     font-weight: normal;
+    text-align: center;
+  }
+  .logo{
     text-align: center;
   }
   .lead{
