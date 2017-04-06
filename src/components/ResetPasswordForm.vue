@@ -4,18 +4,18 @@
       <h3 class="panel-title"><strong>Ingresa aquí una nueva para el acceso a tu aplicación</strong></h3>
     </div>
     <div class="panel-body">
-      <form role="form">
+      <form role="form" @submit.prevent="resetPassword()">
         <div class="form-group">
           <label for="exampleInputEmail1">Email</label>
-          <input type="email" class="form-control" id="email1" placeholder="Enter email" required>
+          <input type="email" class="form-control" v-model.trim="user.email" placeholder="Enter email" required>
         </div>
         <div class="form-group">
           <label for="exampleInputPassword1">Contraseña</label>
-          <input type="password" class="form-control" id="password1" placeholder="Password" required>
+          <input type="password" class="form-control" v-model.trim="user.password" placeholder="Password" required>
         </div>
         <div class="form-group">
           <label for="exampleInputPassword1">Repetir Contraseña</label>
-          <input type="password" class="form-control" id="password2" placeholder="Password" required>
+          <input type="password" class="form-control" v-model.trim="user.rePassword" placeholder="Password" required>
         </div>
         <div class="text-right">
           <br>
@@ -28,12 +28,28 @@
 </template>
 
 <script>
+  import axios from 'axios';
+
   export default {
     name: 'resetPasswordForm',
     data() {
       return {
-        msg: 'Mobi App',
+        user: {
+          email: '',
+          password: '',
+          rePassword: '',
+          token: '',
+        },
       };
+    },
+    methods: {
+      resetPassword() {
+        this.user.token = this.$route.params.token;
+        const user = this.user;
+        axios.post('http://localhost:3030/api/users/reset-password', { user })
+        .then((res) => { console.log(res); })
+        .catch((error) => { console.log(error); });
+      },
     },
   };
 
