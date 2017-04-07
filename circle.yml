@@ -16,4 +16,4 @@ deployment:
     branch: master
     commands:
       - npm run build
-      - aws s3 sync /home/ubuntu/landing-mobi-app/dist s3://www.thebestappforyourvehicle.com/ --delete  --acl public-read
+      - aws s3 sync /home/ubuntu/landing-mobi-app/dist s3://www.thebestappforyourvehicle.co/ --delete  --acl public-read
