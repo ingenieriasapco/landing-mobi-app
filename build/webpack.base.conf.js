@@ -47,6 +47,16 @@ module.exports = {
         include: [resolve('src'), resolve('test')]
       },
       {
+        test: /\.js$/,
+        loader: 'babel-loader',
+        include: path.join(__dirname, './../node_modules/sweetalert/dist/sweetalert.min.js')
+      },
+      {
+        test: /\.css$/,
+        loader: 'css-loader',
+        include: path.join(__dirname, './../node_modules/sweetalert/dist/sweetalert.css')
+      },
+      {
         test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
         loader: 'url-loader',
         options: {

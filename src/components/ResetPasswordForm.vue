@@ -49,7 +49,7 @@
         const user = this.user;
         axios.post('http://localhost:3030/api/users/reset-password', { user })
         .then((res) => {
-          if (res.email) {
+          if (res.data.email) {
             const self = this;
             sweetalert({
               title: 'Contraseña restablecida',
@@ -70,7 +70,7 @@
 </script>
 
 <style scoped>
-  .form--container{
+  .panel-default{
     margin-top: 30px;
   }
   label{ text-align: left; }
