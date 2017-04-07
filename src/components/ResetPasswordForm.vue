@@ -62,7 +62,15 @@
             });
           }
         })
-        .catch((error) => { console.error(error); });
+        .catch(() => {
+          sweetalert({
+            title: 'Oops...',
+            text: 'Algo salio mal y no pudimos cambiar tu contraseña-',
+            type: 'error',
+            confirmButtonText: 'Ok',
+            confirmButtonColor: '#d47729',
+          });
+        });
       },
     },
   };
@@ -70,6 +78,8 @@
 </script>
 
 <style scoped>
+ @import "./../../node_modules/sweetalert/dist/sweetalert.css";
+
   .panel-default{
     margin-top: 30px;
   }

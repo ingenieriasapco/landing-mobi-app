@@ -24,8 +24,10 @@
           <div class="col-md-12 text-center">
             <div class="content">
               <div class="pull-middle">
-                <h4><strong>Sapco 2017</strong></h4>
-                <small>Phasellus feugiat at lorem a tincidunt. Nam hendrerit leo vitae orci pellentesque, nec euismod dolor condimentum.</small>
+                <br/>
+                <a href="http://sapco.co/" target="_blank" title="Sapco">
+                  <strong>© Servicio Automotriz Personalizado SAS | Hecho por Súper Poderosos.</strong>
+                </a>
               </div>
             </div>
           </div>
@@ -50,6 +52,9 @@
     color: #2c3e50;
     margin-top: 60px;
   }
+
+  a { color: #d47729; }
+  a:hover { color: #494a4b; }
 
   .pull-middle{
     margin-top:20px;

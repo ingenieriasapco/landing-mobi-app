@@ -11,7 +11,9 @@
         con todo y tu vehículo siempre esté en perfecto estado.
       </p>
     </h3>
-    <img class="play_store" src="./../assets/badge_playstore.png" alt="Playstore"/>
+    <a href="https://play.google.com/store/apps/details?id=com.sapco.sapcoapp" target="_blank">
+      <img class="play_store" src="./../assets/badge_playstore.png" alt="Playstore"/>
+    </a>
   </div>
 </template>
 
