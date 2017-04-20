@@ -37,7 +37,7 @@
       validateToken(token) {
         const self = this;
         axios
-          .get(`http://localhost:3030/api/users/reset/${token}`)
+          .get(`http://13.92.35.129:3030/api/users/reset/${token}`)
           .then((res) => { self.validate = res.data.validate; })
           .catch(() => { self.validate = false; });
       },
