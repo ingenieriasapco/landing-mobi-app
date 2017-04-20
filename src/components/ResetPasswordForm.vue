@@ -47,7 +47,7 @@
       resetPassword() {
         this.user.token = this.$route.params.token;
         const user = this.user;
-        axios.post('http://localhost:3030/api/users/reset-password', { user })
+        axios.post('http://13.92.35.129:3030/api/users/reset-password', { user })
         .then((res) => {
           if (res.data.email) {
             const self = this;
